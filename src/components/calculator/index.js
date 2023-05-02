@@ -1,7 +1,14 @@
-import React  from "react";
+import React, {useState}  from "react";
 import "./index.css";
 
 export default function Calculator() {
+
+  const [state, setState] = useState('');
+
+  const handleChange = (e) => {
+    console.log(e)
+  }
+  
   return (
     <div className="layout-column align-items-center">
       <div data-testid="total-operations" className="pt-50 total-operations"></div>
@@ -10,10 +17,10 @@ export default function Calculator() {
         <section className="card-text">
           <div className="layout-row justify-content-around align-items-center mt-40">
             <input type="number" className="ml-3 mr-3" data-testid="app-input1" autoComplete="off" placeholder="Eg: 1"
-                  name="input1"/>
+                  name="input1" defaultValue="10"/>
             <label className="ml-2 mr-2 symbol text-center" data-testid="selected-operator"></label>
-            <input type="number" data-testid="app-input2" autoComplete="off" className="ml-3 mr-3"
-                  placeholder="Eg: 2"/>
+            <input type="number" id="test2" data-testid="app-input2" autoComplete="off" className="ml-3 mr-3"
+                  placeholder="Eg: 2" defaultValue="20" onChange={(e)=>{console.log(e)}}/>
           </div>
 
           <div className="layout-row justify-content-around mt-30">
